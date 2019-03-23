@@ -3,8 +3,20 @@
   "version": "1.0.0",
   "description": "Opinionated git hooks to guard your code base 🐶",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "",
+    "lint:commit": "",
+    "test": ""
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run lint:commit -- $HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint && npm test",
+      "pre-push": "npm test"
+    }
   },
   "author": "Jacob Zweifel",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^1.3.1"
+  }
 }
