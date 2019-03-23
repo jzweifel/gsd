@@ -1,0 +1,10 @@
+{
+  "name": "gsd",
+  "version": "1.0.0",
+  "description": "Opinionated git hooks to guard your code base 🐶",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob Zweifel",
+  "license": "MIT"
+}
