@@ -11,6 +11,7 @@ won't let you commit your code without sticking to it! 😁
 ## Tools Used
 
 - [husky](https://github.com/typicode/husky)
+- [lint-staged](https://github.com/okonet/lint-staged)
 - [commitlint](https://github.com/conventional-changelog/commitlint)
 - [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli)
 
