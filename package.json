@@ -13,7 +13,7 @@
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
     "markdownlint-cli": "^0.14.1",
-    "standard": "^12.0.1"
+    "prettier": "^1.16.4"
   },
   "commitlint": {
     "extends": [
@@ -29,8 +29,15 @@
   },
   "lint-staged": {
     "linters": {
-      "*.md": "markdownlint",
-      "*.js": "standard"
+      "*.md": [
+        "prettier --write",
+        "git add",
+        "markdownlint"
+      ],
+      "*.{js,jsx}": [
+        "prettier --write",
+        "git add"
+      ]
     }
   }
 }

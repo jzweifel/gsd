@@ -14,9 +14,10 @@ won't let you commit your code without sticking to it! 😁
 - [lint-staged](https://github.com/okonet/lint-staged)
 - [commitlint](https://github.com/conventional-changelog/commitlint)
 - [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli)
+- [Prettier](https://prettier.io)
 
 ## Styles Enforced
 
 - Commits: [Conventional Commits](https://www.conventionalcommits.org/)
 - Markdown: [markdownlint](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md)
-- JavaScript: [StandardJS](https://standardjs.com/)
+- JavaScript: [Prettier](https://prettier.io)
