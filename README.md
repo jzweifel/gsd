@@ -19,3 +19,4 @@ won't let you commit your code without sticking to it! 😁
 
 - Commits: [Conventional Commits](https://www.conventionalcommits.org/)
 - Markdown: [markdownlint](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md)
+- JavaScript: [StandardJS](https://standardjs.com/)
