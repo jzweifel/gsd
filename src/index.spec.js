@@ -7,7 +7,6 @@ jest.mock("mrm-core/src/npm", () => ({
 }));
 
 const { install } = require("mrm-core");
-const { getConfigGetter } = require("mrm");
 const { vol } = require("memfs");
 const task = require("./index");
 
@@ -44,8 +43,21 @@ it("should install the expected packages", () => {
     "/package.json": packageJson
   });
 
-  task(getConfigGetter({}));
+  task();
 
-  expect(vol.toJSON()).toMatchSnapshot();
   expect(install).toHaveBeenCalledWith(expectedPackages);
+});
+
+it("should set up commitlint to extend config-conventional", () => {
+  vol.fromJSON({
+    "/package.json": packageJson
+  });
+
+  task();
+
+  const actualPackageJson = JSON.parse(vol.toJSON()["/package.json"]);
+
+  expect(actualPackageJson.commitlint.extends).toEqual([
+    "@commitlint/config-conventional"
+  ]);
 });

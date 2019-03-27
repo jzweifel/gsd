@@ -1,4 +1,4 @@
-const { install } = require("mrm-core");
+const { install, packageJson } = require("mrm-core");
 
 function task() {
   const packages = {
@@ -15,6 +15,15 @@ function task() {
     prettier: "^1.16.4"
   };
 
+  const commitlintConfig = {
+    commitlint: {
+      extends: ["@commitlint/config-conventional"]
+    }
+  };
+
+  const pkg = packageJson();
+
+  pkg.merge(commitlintConfig).save();
   // Dependencies
   install(packages);
 }
