@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should add Prettier 1`] = `
+exports[`should install the expected packages 1`] = `
 Object {
   "/package.json": "{
   \\"name\\": \\"unicorn\\",
