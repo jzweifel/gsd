@@ -75,3 +75,15 @@ it("should set up husky to run commitlint on the commit-msg hook", () => {
     "commitlint -e $HUSKY_GIT_PARAMS"
   );
 });
+
+it("should set up husky to run test script on the pre-push hook", () => {
+  vol.fromJSON({
+    "/package.json": packageJson
+  });
+
+  task();
+
+  const actualPackageJson = JSON.parse(vol.toJSON()["/package.json"]);
+
+  expect(actualPackageJson.husky.hooks["pre-push"]).toEqual("npm test");
+});
