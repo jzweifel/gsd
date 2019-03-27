@@ -61,3 +61,17 @@ it("should set up commitlint to extend config-conventional", () => {
     "@commitlint/config-conventional"
   ]);
 });
+
+it("should set up husky to run commitlint on the commit-msg hook", () => {
+  vol.fromJSON({
+    "/package.json": packageJson
+  });
+
+  task();
+
+  const actualPackageJson = JSON.parse(vol.toJSON()["/package.json"]);
+
+  expect(actualPackageJson.husky.hooks["commit-msg"]).toEqual(
+    "commitlint -e $HUSKY_GIT_PARAMS"
+  );
+});

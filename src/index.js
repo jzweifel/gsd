@@ -21,9 +21,23 @@ function task() {
     }
   };
 
+  const huskyConfig = {
+    husky: {
+      hooks: {
+        "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+      }
+    }
+  };
+
   const pkg = packageJson();
 
-  pkg.merge(commitlintConfig).save();
+  pkg
+    .merge({
+      ...commitlintConfig,
+      ...huskyConfig
+    })
+    .save();
+
   // Dependencies
   install(packages);
 }
