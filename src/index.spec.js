@@ -87,3 +87,17 @@ it("should set up husky to run test script on the pre-push hook", () => {
 
   expect(actualPackageJson.husky.hooks["pre-push"]).toEqual("npm test");
 });
+
+it("should set up husky to run lint-staged and test script on the pre-commit hook", () => {
+  vol.fromJSON({
+    "/package.json": packageJson
+  });
+
+  task();
+
+  const actualPackageJson = JSON.parse(vol.toJSON()["/package.json"]);
+
+  expect(actualPackageJson.husky.hooks["pre-commit"]).toEqual(
+    "lint-staged && npm test"
+  );
+});
