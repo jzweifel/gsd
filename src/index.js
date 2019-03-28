@@ -31,12 +31,21 @@ function task() {
     }
   };
 
+  const lintStagedConfig = {
+    "lint-staged": {
+      linters: {
+        "*.md": ["prettier --write", "git add", "markdownlint"]
+      }
+    }
+  };
+
   const pkg = packageJson();
 
   pkg
     .merge({
       ...commitlintConfig,
-      ...huskyConfig
+      ...huskyConfig,
+      ...lintStagedConfig
     })
     .save();
 

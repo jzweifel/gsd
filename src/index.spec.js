@@ -101,3 +101,19 @@ it("should set up husky to run lint-staged and test script on the pre-commit hoo
     "lint-staged && npm test"
   );
 });
+
+it("should set up lint-staged with markdown linters", () => {
+  vol.fromJSON({
+    "/package.json": packageJson
+  });
+
+  task();
+
+  const actualPackageJson = JSON.parse(vol.toJSON()["/package.json"]);
+
+  expect(actualPackageJson["lint-staged"].linters["*.md"]).toEqual([
+    "prettier --write",
+    "git add",
+    "markdownlint"
+  ]);
+});
